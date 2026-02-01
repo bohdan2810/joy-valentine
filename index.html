@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Joy, Will You Be My Valentine?</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    background: white;
+    padding: 35px;
+    border-radius: 22px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  }
+
+  h1, h2 {
+    color: #ff4d6d;
+  }
+
+  /* Character */
+  .character {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    position: relative;
+  }
+
+  .face {
+    background: #ffccdd;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .eye {
+    width: 18px;
+    height: 18px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 45px;
+  }
+
+  .eye.left { left: 30px; }
+  .eye.right { right: 30px; }
+
+  .relief-mouth {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid black;
+    border-radius: 0 0 40px 40px;
+    bottom: 30px;
+    left: 40px;
+  }
+
+  .bow {
+    position: absolute;
+    top: -20px;
+    left: 35px;
+    width: 50px;
+    height: 30px;
+    background: #ff4d6d;
+    border-radius: 8px;
+  }
+
+  .bow::before,
+  .bow::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    top: 2px;
+  }
+
+  .bow::before { left: -15px; }
+  .bow::after { right: -15px; }
+
+  .buttons {
+    margin-top: 25px;
+    height: 80px;
+    position: relative;
+  }
+
+  button {
+    padding: 12px 26px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #noBtn {
+    background: #ddd;
+    position: absolute;
+    left: 140px;
+    top: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .text {
+    font-size: 15px;
+    color: #444;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <!-- SLIDE 1 -->
+  <div id="slide1">
+    <div class="character">
+      <div class="bow"></div>
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+      </div>
+    </div>
+
+    <h1>Joy, will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button id="yesBtn" onclick="goToYay()">Yes</button>
+      <button id="noBtn">No</button>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 (HUMOR) -->
+  <div id="slide2" class="hidden">
+    <div class="character">
+      <div class="bow"></div>
+      <div class="face">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="relief-mouth"></div>
+      </div>
+    </div>
+
+    <h1>YAY!!! 😮‍💨🎉</h1>
+    <p class="text">
+      Phew… that was stressful 😅<br>
+      I totally knew you’d say yes though 😌
+    </p>
+  </div>
+
+  <!-- SLIDE 3 (LOVE MESSAGE) -->
+  <div id="slide3" class="hidden">
+    <h2>Happy Valentine’s Day & Happy Birthday, Joy 🎂💝</h2>
+    <p class="text">
+      Joy, you are the best thing that ever happened to me.<br><br>
+      Your love, your laughter, and your kindness
+      make my world brighter every single day.<br><br>
+      On this Valentine’s Day and on your birthday,
+      I just want you to know how deeply loved,
+      appreciated, and adored you are.<br><br>
+      I choose you — today, tomorrow,
+      and for all the days to come. ❤️
+    </p>
+  </div>
+
+</div>
+
+<audio id="music">
+  <source src="che-vuole-questa-musica-stasera.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const noBtn = document.getElementById('noBtn');
+
+  noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * 250;
+    const y = Math.random() * 40;
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  });
+
+  function goToYay() {
+    document.getElementById('slide1').classList.add('hidden');
+    document.getElementById('slide2').classList.remove('hidden');
+
+    setTimeout(() => {
+      document.getElementById('slide2').classList.add('hidden');
+      document.getElementById('slide3').classList.remove('hidden');
+      document.getElementById('music').play();
+    }, 2500);
+  }
+</script>
+
+</body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .card {
+    background: white;
+    padding: 35px;
+    border-radius: 22px;
+    text-align: center;
+    width: 380px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+  }
+
+  h1, h2 {
+    color: #ff4d6d;
+  }
+
+  /* CHARACTER */
+  .character {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px;
+    position: relative;
+    animation: bounce 2.5s infinite;
+  }
+
+  /* Stronger bounce for YAY */
+  .character.yay {
+    animation: yayBounce 0.8s infinite;
+  }
+
+  .face {
+    background: #ffccdd;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .eye {
+    width: 18px;
+    height: 18px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 45px;
+    animation: blink 4s infinite;
+  }
+
+  .eye.left { left: 30px; }
+  .eye.right { right: 30px; }
+
+  .relief-mouth {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border-bottom: 4px solid black;
+    border-radius: 0 0 40px 40px;
+    bottom: 30px;
+    left: 40px;
+    animation: reliefWiggle 1.5s infinite;
+  }
+
+  .bow {
+    position: absolute;
+    top: -20px;
+    left: 35px;
+    width: 50px;
+    height: 30px;
+    background: #ff4d6d;
+    border-radius: 8px;
+  }
+
+  .bow::before,
+  .bow::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    top: 2px;
+  }
+
+  .bow::before { left: -15px; }
+  .bow::after { right: -15px; }
+
+  .buttons {
+    margin-top: 25px;
+    height: 80px;
+    position: relative;
+  }
+
+  button {
+    padding: 12px 26px;
+    font-size: 16px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+  }
+
+  #yesBtn {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #noBtn {
+    background: #ddd;
+    position: absolute;
+    left: 140px;
+    top: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .text {
+    font-size: 15px;
+    color: #444;
+  }
+
+  /* ANIMATIONS */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes yayBounce {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-18px) rotate(2deg); }
+  }
+
+  @keyframes blink {
+    0%, 95%, 100% { height: 18px; }
+    96%, 99% { height: 3px; }
+  }
+
+  @keyframes reliefWiggle {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(2deg); }
+    75% { transform: rotate(-2deg); }
+  }
+</style>
+<script>
+  const noBtn = document.getElementById('noBtn');
+  const characters = document.querySelectorAll('.character');
+
+  noBtn.addEventListener('mouseover', () => {
+    const x = Math.random() * 250;
+    const y = Math.random() * 40;
+    noBtn.style.left = x + 'px';
+    noBtn.style.top = y + 'px';
+  });
+
+  function goToYay() {
+    document.getElementById('slide1').classList.add('hidden');
+    document.getElementById('slide2').classList.remove('hidden');
+
+    // Extra happy bounce on YAY
+    document.querySelector('#slide2 .character').classList.add('yay');
+
+    setTimeout(() => {
+      document.getElementById('slide2').classList.add('hidden');
+      document.getElementById('slide3').classList.remove('hidden');
+      document.getElementById('music').play();
+    }, 2500);
+  }
+</script>
